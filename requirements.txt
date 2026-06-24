@@ -7,7 +7,7 @@ xgboost
 PyPDF2
 pdfplumber
 pillow
-fitz
+PyMuPDF
 spacy
 sentence-transformers
 torch
