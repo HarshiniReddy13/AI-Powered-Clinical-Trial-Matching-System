@@ -11,3 +11,5 @@ fitz
 spacy
 sentence-transformers
 torch
+torchvision
+transformers
