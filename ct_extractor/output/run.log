@@ -1,0 +1,459 @@
+00:12:12  INFO      =======================================================
+00:12:12  INFO        Clinical Trial NLP Extractor
+00:12:12  INFO      =======================================================
+00:12:12  INFO        Mode     : search
+00:12:12  INFO        Query    : 'cancer phase II drug'
+00:12:12  INFO        Max      : 100
+00:12:12  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+00:12:12  INFO        NER      : both
+00:12:12  INFO        spaCy    : en_core_sci_lg
+00:12:12  INFO        Output   : /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+00:12:12  INFO      =======================================================
+00:12:12  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+00:12:13  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+00:12:13  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+00:12:13  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+00:12:13  INFO      HTTP Request: GET https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+00:12:13  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+00:12:13  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+00:12:14  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+00:12:14  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/xet-read-token/67c9c25b46986521ca33df05d8540da1210b3256 "HTTP/1.1 200 OK"
+00:13:58  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+00:13:58  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+00:13:58  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/tokenizer_config.json "HTTP/1.1 404 Not Found"
+00:13:58  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+00:13:58  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+00:13:59  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+00:13:59  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+00:13:59  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+00:13:59  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/vocab.txt "HTTP/1.1 307 Temporary Redirect"
+00:13:59  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/vocab.txt "HTTP/1.1 200 OK"
+00:13:59  INFO      HTTP Request: GET https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/vocab.txt "HTTP/1.1 200 OK"
+00:13:59  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+00:13:59  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/tokenizer.json "HTTP/1.1 404 Not Found"
+00:13:59  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+00:14:00  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+00:14:00  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/xet-read-token/06124d9ac04ec7f2e522f485574232e7acba45d2 "HTTP/1.1 200 OK"
+00:14:00  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/special_tokens_map.json "HTTP/1.1 404 Not Found"
+00:14:00  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+00:14:00  INFO        biobert ready.
+00:14:00  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+00:14:00  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+00:14:00  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+00:14:01  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+00:14:01  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+00:14:01  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+00:14:01  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+00:14:01  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+00:14:01  INFO        clinbert ready.
+00:14:01  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+00:14:01  WARNING   en_core_web_sm not found. Downloading now ...
+00:14:01  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+00:14:02  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+00:14:02  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+00:14:02  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+00:14:19  INFO      Searching: query='cancer phase II drug'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=100
+00:14:20  INFO      Discovered 100 NCT IDs.
+00:14:20  INFO      Trials to process: 100 remaining.
+00:16:46  INFO      Done. 100 records → /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+03:33:43  INFO      =======================================================
+03:33:43  INFO        Clinical Trial NLP Extractor
+03:33:43  INFO      =======================================================
+03:33:43  INFO        Mode     : search
+03:33:43  INFO        Query    : 'cancer phase II drug'
+03:33:43  INFO        Max      : 100
+03:33:43  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+03:33:43  INFO        NER      : both
+03:33:43  INFO        spaCy    : en_core_sci_lg
+03:33:43  INFO        Output   : /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+03:33:43  INFO      =======================================================
+03:33:43  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+03:33:44  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+03:33:44  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+03:33:44  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+03:33:44  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+03:33:44  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+03:33:45  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+03:33:45  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+03:33:45  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+03:33:45  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+03:33:45  INFO        biobert ready.
+03:33:45  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+03:33:45  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+03:33:45  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+03:33:45  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+03:33:46  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+03:33:46  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+03:33:46  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+03:33:46  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+03:33:46  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+03:33:47  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+03:33:47  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+03:33:47  INFO        clinbert ready.
+03:33:47  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+03:33:47  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+03:33:47  INFO      Loaded spaCy model: en_core_web_sm
+03:33:47  INFO      Searching: query='cancer phase II drug'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=100
+03:33:47  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+03:33:48  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+03:33:48  INFO      Discovered 100 NCT IDs.
+03:33:48  INFO      Resuming — 100 trials already processed.
+03:33:48  INFO      Trials to process: 0 remaining.
+03:33:48  INFO      Done. 100 records → /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+03:33:48  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+03:36:34  INFO      =======================================================
+03:36:34  INFO        Clinical Trial NLP Extractor
+03:36:34  INFO      =======================================================
+03:36:34  INFO        Mode     : search
+03:36:34  INFO        Query    : 'cancer phase II drug'
+03:36:34  INFO        Max      : 100
+03:36:34  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+03:36:34  INFO        NER      : both
+03:36:34  INFO        spaCy    : en_core_sci_lg
+03:36:34  INFO        Output   : /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+03:36:34  INFO      =======================================================
+03:36:34  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+03:36:34  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+03:36:34  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+03:36:34  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+03:36:34  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+03:36:35  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+03:36:35  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+03:36:35  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+03:36:35  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+03:36:35  INFO        biobert ready.
+03:36:35  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+03:36:35  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+03:36:36  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+03:36:36  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+03:36:36  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+03:36:36  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+03:36:36  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+03:36:36  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+03:36:36  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+03:36:36  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+03:36:36  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+03:36:37  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+03:36:37  INFO        clinbert ready.
+03:36:37  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+03:36:37  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+03:36:37  INFO      Loaded spaCy model: en_core_web_sm
+03:36:37  INFO      Searching: query='cancer phase II drug'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=100
+03:36:37  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+03:36:37  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+03:36:38  INFO      Discovered 100 NCT IDs.
+03:36:38  INFO      Trials to process: 100 remaining.
+03:36:38  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+03:39:00  INFO      Done. 100 records → /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+09:14:15  INFO      =======================================================
+09:14:15  INFO        Clinical Trial NLP Extractor
+09:14:15  INFO      =======================================================
+09:14:15  INFO        Mode     : search
+09:14:15  INFO        Query    : None
+09:14:15  INFO        Max      : 5000
+09:14:15  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+09:14:15  INFO        NER      : both
+09:14:15  INFO        spaCy    : en_core_sci_lg
+09:14:15  INFO        Output   : /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+09:14:15  INFO      =======================================================
+09:14:15  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+09:14:15  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+09:14:15  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+09:14:16  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+09:14:16  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+09:14:16  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+09:14:16  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+09:14:17  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+09:14:17  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+09:14:17  INFO        biobert ready.
+09:14:17  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+09:14:17  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+09:14:17  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+09:14:17  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+09:14:17  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+09:14:17  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+09:14:17  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+09:14:18  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+09:14:18  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+09:14:18  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+09:14:18  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+09:14:18  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+09:14:18  INFO        clinbert ready.
+09:14:18  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+09:14:18  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+09:14:18  INFO      Loaded spaCy model: en_core_web_sm
+09:14:18  INFO      Searching: query='None'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=5000
+09:14:19  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+09:14:19  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+09:14:19  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+09:14:54  INFO      Discovered 5000 NCT IDs.
+09:14:54  INFO      Resuming — 100 trials already processed.
+09:14:54  INFO      Trials to process: 4900 remaining.
+10:41:49  INFO      Done. 5100 records → /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+10:42:47  INFO      =======================================================
+10:42:47  INFO        Clinical Trial NLP Extractor
+10:42:47  INFO      =======================================================
+10:42:47  INFO        Mode     : search
+10:42:47  INFO        Query    : None
+10:42:47  INFO        Max      : 5000
+10:42:47  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+10:42:47  INFO        NER      : both
+10:42:47  INFO        spaCy    : en_core_sci_lg
+10:42:47  INFO        Output   : /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+10:42:47  INFO      =======================================================
+10:42:47  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+10:42:48  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:42:48  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+10:42:48  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:42:48  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+10:42:49  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+10:42:49  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:42:49  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:42:49  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+10:42:49  INFO        biobert ready.
+10:42:49  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+10:42:49  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:42:49  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+10:42:49  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+10:42:49  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+10:42:50  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:42:50  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:42:50  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+10:42:50  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+10:42:50  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:42:50  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+10:42:50  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:42:50  INFO        clinbert ready.
+10:42:50  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+10:42:50  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+10:42:51  INFO      Loaded spaCy model: en_core_web_sm
+10:42:51  INFO      Searching: query='None'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=5000
+10:42:51  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+10:42:51  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:42:51  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+10:43:26  INFO      Discovered 5000 NCT IDs.
+10:43:27  INFO      Resuming — 5100 trials already processed.
+10:43:27  INFO      Trials to process: -100 remaining.
+10:43:27  INFO      Done. 5100 records → /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+10:48:20  INFO      =======================================================
+10:48:20  INFO        Clinical Trial NLP Extractor
+10:48:20  INFO      =======================================================
+10:48:20  INFO        Mode     : search
+10:48:20  INFO        Query    : None
+10:48:20  INFO        Max      : 5000
+10:48:20  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+10:48:20  INFO        NER      : both
+10:48:20  INFO        spaCy    : en_core_sci_lg
+10:48:20  INFO        Output   : /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+10:48:20  INFO      =======================================================
+10:48:20  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+10:48:20  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:48:20  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+10:48:20  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+10:48:20  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:48:20  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+10:48:21  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+10:48:21  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:48:21  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:48:21  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+10:48:21  INFO        biobert ready.
+10:48:21  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+10:48:21  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:48:21  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+10:48:21  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+10:48:22  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:48:22  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:48:22  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+10:48:22  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+10:48:22  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:48:22  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+10:48:23  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:48:23  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+10:48:23  INFO        clinbert ready.
+10:48:23  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+10:48:23  INFO      Loaded spaCy model: en_core_web_sm
+10:48:23  INFO      Searching: query='None'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=5000
+10:48:23  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+10:48:23  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:48:23  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+10:48:59  INFO      Discovered 5000 NCT IDs.
+10:48:59  INFO      Resuming — 5100 trials already processed.
+10:48:59  INFO      Trials to process: -100 remaining.
+10:48:59  INFO      Done. 5100 records → /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+10:49:57  INFO      =======================================================
+10:49:57  INFO        Clinical Trial NLP Extractor
+10:49:57  INFO      =======================================================
+10:49:57  INFO        Mode     : search
+10:49:57  INFO        Query    : None
+10:49:57  INFO        Max      : 20000
+10:49:57  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+10:49:57  INFO        NER      : both
+10:49:57  INFO        spaCy    : en_core_sci_lg
+10:49:57  INFO        Output   : /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+10:49:57  INFO      =======================================================
+10:49:57  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+10:49:57  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:49:57  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+10:49:58  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:49:58  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+10:49:58  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+10:49:58  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:49:58  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:49:58  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+10:49:58  INFO        biobert ready.
+10:49:58  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+10:49:59  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+10:49:59  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:49:59  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+10:49:59  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+10:49:59  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:49:59  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:49:59  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+10:49:59  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+10:49:59  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:49:59  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+10:50:00  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:50:00  INFO        clinbert ready.
+10:50:00  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+10:50:00  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+10:50:00  INFO      Loaded spaCy model: en_core_web_sm
+10:50:00  INFO      Searching: query='None'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=20000
+10:50:00  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+10:50:00  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:50:01  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+10:52:22  INFO      Discovered 20000 NCT IDs.
+10:52:22  INFO      Resuming — 5100 trials already processed.
+10:52:22  INFO      Trials to process: 14900 remaining.
+15:39:53  INFO      Done. 20090 records → /Users/harshinireddy/Documents/ct_extractor/output/trials_extracted.json
+10:16:43  INFO      =======================================================
+10:16:43  INFO        Clinical Trial NLP Extractor
+10:16:43  INFO      =======================================================
+10:16:43  INFO        Mode     : search
+10:16:43  INFO        Query    : None
+10:16:43  INFO        Max      : 20000
+10:16:43  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+10:16:43  INFO        NER      : both
+10:16:43  INFO        spaCy    : en_core_sci_lg
+10:16:43  INFO        Output   : /Users/harshinireddy/Documents/mini project/ct_extractor/output/trials_extracted.json
+10:16:43  INFO      =======================================================
+10:16:43  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+10:16:43  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:16:43  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+10:16:44  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:16:44  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+10:16:44  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+10:16:44  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:16:44  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+10:16:44  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:16:44  INFO        biobert ready.
+10:16:44  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+10:16:44  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+10:16:45  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:16:45  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+10:16:45  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+10:16:45  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:16:45  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:16:45  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+10:16:45  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+10:16:46  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:16:46  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+10:16:46  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:16:46  INFO        clinbert ready.
+10:16:46  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+10:16:46  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+10:16:46  INFO      Loaded spaCy model: en_core_web_sm
+10:16:46  INFO      Searching: query='None'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=20000
+10:16:46  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+10:16:47  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:16:47  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+10:19:07  INFO      Discovered 20000 NCT IDs.
+10:19:08  INFO      Resuming — 20090 trials already processed.
+10:19:08  INFO      Trials to process: -90 remaining.
+10:33:52  INFO      =======================================================
+10:33:52  INFO        Clinical Trial NLP Extractor
+10:33:52  INFO      =======================================================
+10:33:52  INFO        Mode     : search
+10:33:52  INFO        Query    : None
+10:33:52  INFO        Max      : 20001
+10:33:52  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+10:33:52  INFO        NER      : both
+10:33:52  INFO        spaCy    : en_core_sci_lg
+10:33:52  INFO        Output   : /Users/harshinireddy/Documents/mini project/ct_extractor/output/trials_extracted.json
+10:33:52  INFO      =======================================================
+10:33:52  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+10:33:52  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:33:52  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+10:33:52  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+10:33:53  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:33:53  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+10:33:53  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:33:53  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+10:33:53  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:33:53  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+10:33:53  INFO        biobert ready.
+10:33:53  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+10:33:54  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:33:54  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+10:33:54  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+10:33:54  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:33:54  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:33:54  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+10:33:54  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+10:33:54  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:33:54  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+10:33:55  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:33:55  INFO        clinbert ready.
+10:33:55  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+10:33:55  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+10:33:55  INFO      Loaded spaCy model: en_core_web_sm
+10:33:55  INFO      Searching: query='None'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=20001
+10:33:55  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+10:33:55  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:33:56  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+10:36:14  INFO      Discovered 20001 NCT IDs.
+10:36:15  INFO      Resuming — 20480 trials already processed.
+10:36:15  INFO      Trials to process: -479 remaining.
+10:48:27  INFO      =======================================================
+10:48:27  INFO        Clinical Trial NLP Extractor
+10:48:27  INFO      =======================================================
+10:48:27  INFO        Mode     : search
+10:48:27  INFO        Query    : None
+10:48:27  INFO        Max      : 20001
+10:48:27  INFO        Filters  : {'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}
+10:48:27  INFO        NER      : both
+10:48:27  INFO        spaCy    : en_core_sci_lg
+10:48:27  INFO        Output   : /Users/harshinireddy/Documents/mini project/ct_extractor/output/trials_extracted.json
+10:48:27  INFO      =======================================================
+10:48:27  INFO      Loading biobert  (dmis-lab/biobert-base-cased-v1.2)  on CPU ...
+10:48:27  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:48:27  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/dmis-lab/biobert-base-cased-v1.2/67c9c25b46986521ca33df05d8540da1210b3256/config.json "HTTP/1.1 200 OK"
+10:48:28  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:48:28  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2 "HTTP/1.1 200 OK"
+10:48:28  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/main "HTTP/1.1 200 OK"
+10:48:28  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:48:29  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/discussions?p=0 "HTTP/1.1 200 OK"
+10:48:29  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:48:29  INFO        biobert ready.
+10:48:29  INFO      Loading clinbert  (emilyalsentzer/Bio_ClinicalBERT)  on CPU ...
+10:48:29  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+10:48:29  INFO      HTTP Request: GET https://huggingface.co/api/models/dmis-lab/biobert-base-cased-v1.2/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+10:48:29  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/emilyalsentzer/Bio_ClinicalBERT/d5892b39a4adaed74b92212a44081509db72f87b/config.json "HTTP/1.1 200 OK"
+10:48:29  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:48:29  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+10:48:29  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+10:48:29  INFO      HTTP Request: HEAD https://huggingface.co/dmis-lab/biobert-base-cased-v1.2/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+10:48:29  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT "HTTP/1.1 200 OK"
+10:48:30  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+10:48:30  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/main "HTTP/1.1 200 OK"
+10:48:30  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+10:48:30  INFO        clinbert ready.
+10:48:30  WARNING   Model 'en_core_sci_lg' not found. Run setup.py to install it. Trying en_core_web_sm ...
+10:48:30  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/discussions?p=0 "HTTP/1.1 200 OK"
+10:48:30  INFO      Loaded spaCy model: en_core_web_sm
+10:48:30  INFO      Searching: query='None'  filters={'phase': None, 'study_type': None, 'status': None, 'condition': None, 'intervention': None}  limit=20001
+10:48:30  INFO      HTTP Request: GET https://huggingface.co/api/models/emilyalsentzer/Bio_ClinicalBERT/commits/refs%2Fpr%2F16 "HTTP/1.1 200 OK"
+10:48:31  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+10:48:31  INFO      HTTP Request: HEAD https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT/resolve/refs%2Fpr%2F16/model.safetensors "HTTP/1.1 302 Found"
+10:50:48  INFO      Discovered 20001 NCT IDs.
+10:50:50  INFO      Resuming — 21000 trials already processed.
+10:50:50  INFO      Trials to process: -999 remaining.

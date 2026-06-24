@@ -1174,324 +1174,203 @@ def validate(patient):
 # HTML result renderer  (ported from notebook Gradio section → Streamlit)
 # ---------------------------------------------------------------------------
 def _get_styles():
-
-    bg          = "#f8fafc"
-    bg_card     = "#ffffff"
-    bg_inner    = "#ffffff"
-
-    border      = "#e5e7eb"
-    border_soft = "#edf1f5"
-
-    text        = "#111827"
-    text_muted  = "#374151"
-    text_dim    = "#6b7280"
-    text_faint  = "#9ca3af"
-
-    blue        = "#2563eb"
-
-    green       = "#16a34a"
-    green_bg    = "#dcfce7"
-    green_bdr   = "#86efac"
-
-    yellow      = "#ca8a04"
-    yellow_bg   = "#fef9c3"
-
-    red         = "#dc2626"
-    red_bg      = "#fee2e2"
-    red_bdr     = "#fca5a5"
-
-    return f"""
+    return """
 <style>
-
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
-.ctm-root {{
+:root {
+    --bg:          #f8fafc;
+    --bg-card:     #ffffff;
+    --bg-inner:    #ffffff;
+    --border:      #e5e7eb;
+    --border-soft: #edf1f5;
+    --text:        #111827;
+    --text-muted:  #374151;
+    --text-dim:    #6b7280;
+    --text-faint:  #9ca3af;
+    --blue:        #2563eb;
+    --blue-bg:     #dbeafe;
+    --blue-bdr:    #93c5fd;
+    --green:       #16a34a;
+    --green-bg:    #dcfce7;
+    --green-bdr:   #86efac;
+    --yellow:      #ca8a04;
+    --yellow-bg:   #fef9c3;
+    --yellow-bdr:  #fde68a;
+    --red:         #dc2626;
+    --red-bg:      #fee2e2;
+    --red-bdr:     #fca5a5;
+    --shadow:      rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg:          #0C0C0E;
+        --bg-card:     #141416;
+        --bg-inner:    #1A1A1E;
+        --border:      rgba(255,255,255,0.14);
+        --border-soft: rgba(255,255,255,0.08);
+        --text:        #F2F0EB;
+        --text-muted:  #BCBAB4;
+        --text-dim:    #9A9894;
+        --text-faint:  #6B6A66;
+        --blue:        #6FA8FF;
+        --blue-bg:     rgba(111,168,255,0.12);
+        --blue-bdr:    rgba(111,168,255,0.35);
+        --green:       #3EE09A;
+        --green-bg:    rgba(62,224,154,0.12);
+        --green-bdr:   rgba(62,224,154,0.35);
+        --yellow:      #F5A623;
+        --yellow-bg:   rgba(245,166,35,0.12);
+        --yellow-bdr:  rgba(245,166,35,0.35);
+        --red:         #FF5C5C;
+        --red-bg:      rgba(255,92,92,0.12);
+        --red-bdr:     rgba(255,92,92,0.35);
+        --shadow:      rgba(0,0,0,0.5);
+    }
+}
+
+html, body {
+    margin:0;
+    padding:0;
+    background:var(--bg);
+}
+
+.ctm-root {
     font-family:'IBM Plex Sans',sans-serif;
-    background:{bg};
-    color:{text};
+    background:var(--bg);
+    color:var(--text);
     padding:16px;
     margin:0;
     border-radius:16px;
-}}
+}
 
-.section-heading {{
+.section-heading {
     font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:{text_dim};
-    padding-bottom:12px;
-    border-bottom:1px solid {border_soft};
+    font-size:11px; font-weight:600; text-transform:uppercase;
+    letter-spacing:2px; color:var(--text-dim);
+    padding-bottom:12px; border-bottom:1px solid var(--border-soft);
     margin-bottom:18px;
-}}
+}
 
-.trial-card {{
-    background:{bg_card};
-    border:1px solid {border};
+.trial-card {
+    background:var(--bg-card);
+    border:1px solid var(--border);
     border-radius:18px;
     margin-bottom:16px;
     overflow:hidden;
     transition:all 0.18s ease;
-}}
-
-.trial-card:hover {{
+}
+.trial-card:hover {
     transform:translateY(-2px);
-    box-shadow:0 10px 28px rgba(0,0,0,0.08);
-}}
+    box-shadow:0 10px 28px var(--shadow);
+}
 
-.card-header {{
-    padding:20px 22px;
-    display:flex;
-    align-items:flex-start;
-    gap:18px;
-    cursor:pointer;
-    list-style:none;
-}}
+.card-header {
+    padding:20px 22px; display:flex; align-items:flex-start;
+    gap:18px; cursor:pointer; list-style:none;
+}
 
-.rank-badge {{
+.rank-badge {
     font-family:'IBM Plex Mono',monospace;
-    font-size:34px;
-    font-weight:700;
-    color:{text_dim};
-    min-width:44px;
-}}
+    font-size:34px; font-weight:700; color:var(--text-dim); min-width:44px;
+}
 
-.card-main {{
-    flex:1;
-}}
+.card-main { flex:1; }
 
-.trial-title {{
-    font-size:17px;
-    font-weight:600;
-    color:{text};
-    margin:0 0 12px 0;
-    line-height:1.45;
-}}
+.trial-title {
+    font-size:17px; font-weight:600; color:var(--text);
+    margin:0 0 12px 0; line-height:1.45;
+}
 
-.card-meta {{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    align-items:center;
-}}
+.card-meta { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
 
-.badge {{
-    font-size:11px;
-    font-family:'IBM Plex Mono',monospace;
-    padding:4px 10px;
-    border-radius:999px;
-    font-weight:600;
-}}
+.badge {
+    font-size:11px; font-family:'IBM Plex Mono',monospace;
+    padding:4px 10px; border-radius:999px; font-weight:600;
+}
 
-.badge-green {{
-    background:{green_bg};
-    color:{green};
-    border:1px solid {green_bdr};
-}}
+.badge-green  { background:var(--green-bg);  color:var(--green);  border:1px solid var(--green-bdr); }
+.badge-blue   { background:var(--blue-bg);   color:var(--blue);   border:1px solid var(--blue-bdr); }
+.badge-yellow { background:var(--yellow-bg); color:var(--yellow); border:1px solid var(--yellow-bdr); }
+.badge-red    { background:var(--red-bg);    color:var(--red);    border:1px solid var(--red-bdr); }
+.badge-gray   { background:var(--bg-inner);  color:var(--text-dim); border:1px solid var(--border); }
 
-.badge-blue {{
-    background:#dbeafe;
-    color:{blue};
-    border:1px solid #93c5fd;
-}}
+.trial-id { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); }
 
-.badge-yellow {{
-    background:{yellow_bg};
-    color:{yellow};
-    border:1px solid #fde68a;
-}}
+.score-arc { display:flex; align-items:center; gap:8px; margin-left:auto; }
 
-.badge-red {{
-    background:{red_bg};
-    color:{red};
-    border:1px solid {red_bdr};
-}}
+.score-circle {
+    width:62px; height:62px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700;
+}
+.score-hi  { background:var(--green-bg);  border:2px solid var(--green);  color:var(--green); }
+.score-mid { background:var(--yellow-bg); border:2px solid var(--yellow); color:var(--yellow); }
+.score-lo  { background:var(--red-bg);    border:2px solid var(--red);    color:var(--red); }
 
-.badge-gray {{
-    background:{bg_inner};
-    color:{text_dim};
-    border:1px solid {border};
-}}
+.card-detail { border-top:1px solid var(--border-soft); padding:20px 22px; }
 
-.trial-id {{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:{text_faint};
-}}
-
-.score-arc {{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-left:auto;
-}}
-
-.score-circle {{
-    width:62px;
-    height:62px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:14px;
-    font-weight:700;
-}}
-
-.score-hi {{
-    background:{green_bg};
-    border:2px solid {green};
-    color:{green};
-}}
-
-.score-mid {{
-    background:{yellow_bg};
-    border:2px solid {yellow};
-    color:{yellow};
-}}
-
-.score-lo {{
-    background:{red_bg};
-    border:2px solid {red};
-    color:{red};
-}}
-
-.card-detail {{
-    border-top:1px solid {border_soft};
-    padding:20px 22px;
-}}
-
-.summary-box {{
-    background:{bg_inner};
-    border-left:4px solid {blue};
+.summary-box {
+    background:var(--bg-inner);
+    border-left:4px solid var(--blue);
     border-radius:0 10px 10px 0;
-    padding:14px 16px;
-    font-size:14px;
-    color:{text_muted};
-    line-height:1.7;
-    margin-bottom:18px;
-}}
+    padding:14px 16px; font-size:14px; color:var(--text-muted);
+    line-height:1.7; margin-bottom:18px;
+}
 
-.criteria-grid {{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-    gap:12px;
-    margin-bottom:18px;
-}}
+.criteria-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:12px; margin-bottom:18px;
+}
 
-.crit-row {{
-    background:{bg_inner};
-    border:1px solid {border_soft};
-    border-radius:10px;
-    padding:12px 14px;
-}}
+.crit-row {
+    background:var(--bg-inner); border:1px solid var(--border-soft);
+    border-radius:10px; padding:12px 14px;
+}
+.crit-pass    { border-left:4px solid var(--green); }
+.crit-partial { border-left:4px solid var(--yellow); }
+.crit-fail    { border-left:4px solid var(--red); }
+.crit-unknown { border-left:4px solid var(--text-dim); }
 
-.crit-pass {{
-    border-left:4px solid {green};
-}}
+.crit-name {
+    font-size:11px; font-weight:700; color:var(--text);
+    text-transform:uppercase; letter-spacing:0.6px; margin-bottom:6px;
+}
+.crit-values { display:flex; gap:8px; font-size:13px; flex-wrap:wrap; }
+.crit-patient { color:var(--text-muted); }
+.crit-trial   { color:var(--text-faint); }
 
-.crit-partial {{
-    border-left:4px solid {yellow};
-}}
-
-.crit-fail {{
-    border-left:4px solid {red};
-}}
-
-.crit-unknown {{
-    border-left:4px solid {text_dim};
-}}
-
-.crit-name {{
-    font-size:11px;
-    font-weight:700;
-    color:{text};
-    text-transform:uppercase;
-    letter-spacing:0.6px;
-    margin-bottom:6px;
-}}
-
-.crit-values {{
-    display:flex;
-    gap:8px;
-    font-size:13px;
-    flex-wrap:wrap;
-}}
-
-.crit-patient {{
-    color:{text_muted};
-}}
-
-.crit-trial {{
-    color:{text_faint};
-}}
-
-.verdict-box {{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 16px;
-    border-radius:999px;
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:12px;
+.verdict-box {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 16px; border-radius:999px;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px;
     margin-top:12px;
-}}
+}
+.verdict-eligible   { background:var(--green-bg); border:1px solid var(--green); color:var(--green); }
+.verdict-ineligible { background:var(--red-bg);   border:1px solid var(--red);   color:var(--red); }
 
-.verdict-eligible {{
-    background:{green_bg};
-    border:1px solid {green};
-    color:{green};
-}}
+.no-match {
+    background:var(--red-bg); border:1px solid var(--red-bdr);
+    border-radius:16px; padding:28px; text-align:center;
+    color:var(--red); font-size:15px;
+}
 
-.verdict-ineligible {{
-    background:{red_bg};
-    border:1px solid {red};
-    color:{red};
-}}
+.disclaimer {
+    margin-top:20px; background:var(--bg-card); border:1px solid var(--border);
+    border-radius:12px; padding:14px 16px; font-size:11px;
+    color:var(--text-faint); line-height:1.6;
+}
 
-.no-match {{
-    background:{red_bg};
-    border:1px solid {red_bdr};
-    border-radius:16px;
-    padding:28px;
-    text-align:center;
-    color:{red};
-    font-size:15px;
-}}
+details > summary { list-style:none; }
+details > summary::-webkit-details-marker { display:none; }
 
-.disclaimer {{
-    margin-top:20px;
-    background:{bg_card};
-    border:1px solid {border};
-    border-radius:12px;
-    padding:14px 16px;
-    font-size:11px;
-    color:{text_faint};
-    line-height:1.6;
-}}
-
-details > summary {{
-    list-style:none;
-}}
-
-details > summary::-webkit-details-marker {{
-    display:none;
-}}
-
-.chevron {{
-    display:inline-block;
-    transition:transform 0.2s;
-    color:{text_dim};
-    margin-left:8px;
-    font-size:12px;
-}}
-
-details[open] .chevron {{
-    transform:rotate(90deg);
-}}
+.chevron {
+    display:inline-block; transition:transform 0.2s;
+    color:var(--text-dim); margin-left:8px; font-size:12px;
+}
+details[open] .chevron { transform:rotate(90deg); }
 
 </style>
 """
@@ -1518,7 +1397,7 @@ def _crit_row_html(name, detail, status_class):
     pval  = detail.get("patient", detail.get("patient_value", "—"))
     tval  = detail.get("trial",   detail.get("trial_req", "—"))
     overlap = detail.get("overlap", "")
-    extra = f' <span style="color:#8b949e;font-size:11px;">({overlap})</span>' if overlap else ""
+    extra = f' <span style="color:var(--text-faint);font-size:11px;">({overlap})</span>' if overlap else ""
     return f"""<div class="crit-row crit-{status_class}">
       <div>
         <div class="crit-name">{name}</div>
@@ -1560,7 +1439,8 @@ def _render_match(m):
         if not items:
             return ""
         rows = "".join(_crit_row_html(k, v, status_class) for k, v in items.items())
-        color = {"pass": "#3fb950", "partial": "#d29922", "fail": "#f85149", "unknown": "#8b949e"}[status_class]
+        color = {"pass": "var(--green)", "partial": "var(--yellow)",
+                 "fail": "var(--red)", "unknown": "var(--text-dim)"}[status_class]
         return f"""
             <div style="font-size:10px;font-weight:600;letter-spacing:1.5px;
                         text-transform:uppercase;margin:14px 0 8px 0;
