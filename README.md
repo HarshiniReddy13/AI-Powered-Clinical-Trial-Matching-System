@@ -114,8 +114,7 @@ This combines explicit clinical eligibility with learned similarity patterns to 
 Clone the repository
 
 ```bash
-git clone https://github.com/<username>/<repository>.git
-cd <repository>
+git clone https://github.com/HarshiniReddy13/AI-Powered-Clinical-Trial-Matching-System.git
 ```
 
 Install dependencies
