@@ -6,6 +6,8 @@ The AI-Powered Clinical Trial Matching System is a patient-trial matching platfo
 
 The system combines biomedical NLP for information extraction, rule-based eligibility matching, and machine learning-based ranking. The application is built with Streamlit and provides an interactive workflow for either manually entering medical data or uploading patient records, reviewing extracted information, and viewing ranked clinical trial recommendations.
 
+***Demo:*** https://clinical-trial-matching-system-jutrt9n8beamxiwjvkr2.streamlit.app/
+
 ---
 
 ## Features
